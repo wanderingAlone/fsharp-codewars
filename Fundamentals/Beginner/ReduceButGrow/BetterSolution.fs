@@ -1,0 +1,1 @@
+let Grow = Array.reduce (*)

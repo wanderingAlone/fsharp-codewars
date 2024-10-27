@@ -1,11 +1,10 @@
 module Kata
 
+let splitMatch (r: string) : int =
+    match r.Split(':') with
+    | [| x; y |] when int x > int y -> 3
+    | [| x; y |] when int x = int y -> 1
+    | _ -> 0
+
 let points (games: list<string>) : int =
-    games
-    |> List.sumBy (fun r ->
-        let [| x; y |] = r.Split(':') |> Array.map int
-        match x, y with
-        | _ when x > y -> 3
-        | _ when x = y -> 1
-        | _ -> 0
-    )
+    List.sumBy splitMatch games
